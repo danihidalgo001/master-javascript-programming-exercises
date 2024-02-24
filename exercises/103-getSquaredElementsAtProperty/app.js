@@ -1,6 +1,11 @@
 function getSquaredElementsAtProperty(obj, key) {
-    // your code here
-    
+  // your code here
+  try {
+    const arr = obj[key].filter(e => typeof e === 'number').map(n => n**2)
+    return arr
+  } catch (error) {
+    return []
+  }  
 }
 
 let obj = {

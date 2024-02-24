@@ -1,6 +1,14 @@
 function detectOutlierValue(string) {
     // your code here
-    
+    const arr = string.split(" ").map(e => Number(e) % 2)
+    let one = 0
+    arr.forEach(n => {
+      if (n === 1) {
+        one += 1
+      }  
+    })
+
+    return arr.indexOf(one > 1 ? 0 : 1) + 1
 }
 
 // Third number is odd, while the rest of the numbers are even

@@ -1,6 +1,11 @@
 function getSmallestElementAtProperty(obj, key) {
-    // your code here
-  
+  // your code here
+  try {
+    const arr = obj[key].filter(e => typeof e === 'number').sort()
+    return arr.length ? arr[0] : []
+  } catch (error) {
+    return []
+  }
 }
 
 let obj = {
