@@ -19,7 +19,23 @@ let currentInventory = [
 
 function getLaceNameDataForShoes(inventory) {
     // your code here
-    
+  const searchResult = []
+
+  inventory.forEach(client => {
+    client.shoes.forEach(shoe => {
+      const nameWords = shoe.name.split(" ")
+      const targetWordIndex = nameWords.findIndex(word => word.includes("lace"))
+
+      if (targetWordIndex !== -1) {
+        searchResult.push({
+          nameWords,
+          targetWordIndex
+        })
+      }
+    })
+  })
+
+  return searchResult
 }
 
 console.log(getLaceNameDataForShoes(currentInventory));

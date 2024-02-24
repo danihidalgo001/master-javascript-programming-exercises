@@ -21,7 +21,16 @@ function renderInventory(inventory) {
     // your code here
     // hint: before you just dive into coding...
     // it's a good idea to sketch out a skeleton like you've been seeing earlier in this module...
-    
+  let matrix = []
+  
+  inventory.forEach(client => {
+    const clientName = client.name
+    client.shoes.forEach(shoe => {
+      matrix.push([clientName, shoe.name, shoe.price])
+    })
+  })
+
+  return matrix
 }
 
 console.log(renderInventory(currentInventory))

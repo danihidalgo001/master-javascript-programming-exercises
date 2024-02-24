@@ -2,11 +2,12 @@ function findPairForSum(array, number) {
   // your code here
   let p = []
 
-  array.sort((a,b) => {
-    if (a + b === number) {
-      p = [a, b]
-    }
-    return a - b
+  array.forEach(e => {
+    array.forEach(n => {
+      if (e + n === number && p.length === 0) {
+        p = [e, n]
+      }
+    })
   })
 
   return p

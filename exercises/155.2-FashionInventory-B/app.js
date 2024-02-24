@@ -19,7 +19,17 @@ let currentInventory = [
 
 function renderAverageCostPerDesigner(inventory) {
     // your code here
-  
+  return [...inventory].map(client => {
+    let average = 0
+    client.shoes.forEach(s => {
+      average += s.price
+    })
+
+    return {
+      name: client.name,
+      averagePrice: average / client.shoes.length
+    }
+  })
 }
 
 console.log(renderAverageCostPerDesigner(currentInventory));

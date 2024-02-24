@@ -18,8 +18,21 @@ let currentInventory = [
   ];
 
 function renderInventory(shoeList) {
-    // your code here
-    
+  // your code here
+  const results = [...shoeList].map(designer => {
+    let filter = designer.shoes.filter(shoe => {
+      return shoe.name.toLowerCase().indexOf("black") !== -1
+    })
+
+    if (filter.length) {
+      return filter.map(r => [designer.name, r.name, r.price])
+    } else {
+      return []
+    }
+
+  })
+
+  return results.flat()
 }
 
 console.log(renderInventory(currentInventory));
